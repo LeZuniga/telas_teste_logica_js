@@ -1,0 +1,3 @@
+use proper_Base
+INSERT [dbo].[Term] ([Term_code], [Term_description], [Type], [Functionality], [Field], [Width], [Order_Grid], [Field_name], [Menu_structure], [Quantity_Frozen_Fields], [Align]) 
+    VALUES (N'Menu.BasicInformation.DemandAndInventoryMapping', N'Menu - Basic Data - DemandAndInventoryMapping', N'Menu', N'BasicInformation', N'DemandAndInventoryMapping', CAST(0 AS Numeric(18, 0)), CAST(0 AS Numeric(18, 0)), N'DemandAndInventoryMapping', N'1.02.18', NULL, NULL)

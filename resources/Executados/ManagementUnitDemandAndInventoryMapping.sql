@@ -1,0 +1,30 @@
+CREATE TABLE [dbo].[Management_Unit_Demand_and_Inventory_Map](
+	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[Analysis_id] [numeric](18, 0) NOT NULL,
+	Region_code_management_unit_id [numeric](18, 0) NULL,
+	Management_unit_id [numeric](18, 0) NULL,
+	Date [datetime]  NULL,
+	Repeatability [nvarchar](2) NULL,
+	Relevance [nvarchar](2) NULL,
+	Variability [nvarchar](2) NULL,
+	Predictability [nvarchar](2) NULL,
+	Planning_method [nvarchar](2) NULL,
+	Historical_demand_average_value_standard_bucket [numeric](18, 4) NULL,
+	Minimum_stock_value [numeric](18, 4) NULL,
+	Minimum_stock_coverage [numeric](18, 4) NULL,
+	Average_stock_value [numeric](18, 4) NULL,
+	Average_inventory_coverage [numeric](18, 4) NULL,
+	Maximum_stock_value [numeric](18, 4) NULL,
+	Maximum_stock_coverage [numeric](18, 4) NULL,
+	Current_inventory_value [numeric](18, 4) NULL,
+	Current_inventory_coverage [numeric](18, 4) NULL,
+	Number_SPUs_above_maximum [int] NULL,
+	Number_SPUs_below_minimum [int] NULL,
+	Number_SPUs_between_limits [int] NULL,
+	Bellow_minimum_value [numeric](18, 4) NULL,
+	Above_maximum_value [numeric](18, 4) NULL,
+	Balancing_index_number_SPUs [numeric](18, 4) NULL,
+	Balancing_index_value [numeric](18, 4) NULL
+
+) ON [PRIMARY]
+GO
