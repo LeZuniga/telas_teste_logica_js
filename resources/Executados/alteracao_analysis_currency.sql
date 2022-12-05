@@ -1,1 +1,0 @@
-alter table analysis add Reference_currency_exchange_rate_date [date] NULL;

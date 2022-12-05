@@ -1,0 +1,18 @@
+.handsontable td {
+  line-height: 10px;
+  height: 10px ;
+  background-color: #fff;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+.handsontable th {
+  line-height: 10px;
+  height: 10px ;
+  background-color: #fff;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+}
+.handsontable .currentRow {
+  background: #e6fbf9
+}

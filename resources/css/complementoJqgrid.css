@@ -1,0 +1,31 @@
+.ui-jqgrid .ui-jqgrid-bdiv { overflow-y: scroll;}
+
+    th.ui-th-column div {
+        /* see http://stackoverflow.com/a/7256972/315935 for details */
+        word-wrap: break-word;      /* IE 5.5+ and CSS3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap;     /* Opera 4-6 */
+        white-space: -o-pre-wrap;   /* Opera 7 */
+        white-space: pre-wrap;      /* CSS3 */
+        overflow: hidden;
+        height: auto !important;
+        vertical-align: middle;
+    }
+    .ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+        height: auto;
+        vertical-align: middle;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .ui-jqgrid .frozen-bdiv, .ui-jqgrid .frozen-div {
+        overflow: hidden;
+    }
+
+.frozen-bdiv {
+    pointer-events: none;
+}

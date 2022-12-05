@@ -1,1 +1,0 @@
-Alter table itens Alter Column Shelf_life [numeric](18, 4) NULL;
