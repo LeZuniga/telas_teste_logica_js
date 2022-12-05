@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tela de Estudo 1</title>   
+   
+     
+     
+     
+     
+     
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <!-- This is the Javascript file of jqGrid  -->  
+    <script type="text/ecmascript" src="../resources/js/jquery.jqGridNew.min.js"></script>   
+    <script type="text/ecmascript" src="../resources/js/grid.locale-en.js"></script>
+ 
+    <script type="text/javascript" src="../resources/js/jszip.min.js"></script>
+    <script type="text/javascript" src="../resources/js/formatosProper.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-1.10.0.min.js"></script> -->
+    <!-- <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="js/Exercicio2.js"></script>
+
+    <link class="ui-theme" rel="stylesheet" href="../resources/css/jquery-ui.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../resources/css/ui.jqgridNew.min.css" />   
+
+<style>
+
+</style>
+
+<script>
+
+// definindo formato dos dadosCadastroPessoa do input
+$(document).ready(function(){
+    // $("#numCpf").inputmask("999.999.999-99"); 
+});
+
+var dadosCadastroPessoa = [];
+var contatos = [];
+
+var newId = 1;
+var contatoId = 1;
+
+//função cadastro
+function cadastraPessoa(){
+    var nome = document.getElementById("nome");
+    var dataDeNascimento = document.getElementById("dataDeNascimento");
+    var cpf = document.getElementById("numCpf");
+    var telefone = document.getElementById("telefone");
+    var endereço  = document.getElementById("endereco");
+   
+    var pessoa = {
+        id: newId++,
+        nome: nome.value,
+        dataDeNascimento: dataDeNascimento.value,
+        cpf: cpf.value,
+        }
+
+    var contato = {
+            id: contatoId++,
+            idPessoa: pessoa.id,
+            telefone: telefone.value,
+            endereco: endereco.value,
+    }
+
+    dadosCadastroPessoa.push(pessoa);
+    contatos.push(contato);
+    console.log(pessoa);
+
+    montaGrid([...dadosCadastroPessoa]);
+   
+}
+
+ // montando Tabela:
+ function montaGrid(lista){
+     $("#jqGrid").jqGrid({
+         data: lista,
+         datatype: 'local',
+         colNames: ['id', 'nome', 'dataDeNascimento', 'cpf',],
+         colModel: [
+             {nome : 'id' , index: 'id', width: 100, align: 'left'}, 
+             {nome : 'nome' , index: 'idPessoa', width: 100, align: 'left' }, 
+             {nome : 'dataDeNascimento' , index: 'telefone', width: 100, align: 'left', sorttype:'date' }, 
+             {nome : 'cpf' , index: 'endereco', width: 100, align: 'left' }, 
+         ],
+     });
+}
+// no document.ready colocar algum comando que inicie vazio, e só preencha após o cadastro
+$(document).ready(function(){
+    montaGrid();
+});
+
+//Função cadastraContato no modal
+// function cadastraContato(){
+
+//     var telefone = document.querySelectorAll('[aria-describedby^="jqGrid_telefone"]' );
+//     var endereço  = document.querySelectorAll('[aria-describedby^="jqGrid_endereco"]' );
+    
+//     var outrosContatos = { 
+//             id: contatoId++,
+//             telefone: telefone.value,
+//             endereco: endereço.value,
+//     }
+    
+//     dadosDeContato.push(outrosContatos);
+//     console.log(dadosDeContato);
+   
+//     $('#gridModal').setGridParam({ data: dadosDeContato }).trigger('reloadGrid');   
+// }
+
+
+</script>
+  
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <ul class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>       
+            <a class="nav-link" href="tela_estudo02.html" >Tabela de Cadastros</a>       
+            <a class="nav-link" href="#">Pricing</a>       
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Cadastrar</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </ul>
+  </nav>
+      
+     <header>
+        <h1>Cadastro de Pessoas</h1>
+     </header>
+
+     
+    <div class="container">
+        <div id="formPessoa">
+            <main>
+                <form>
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome">
+
+                    <label for="dataDeNascimento">Data de Nascimento</label>
+                    <input type="date" id="dataDeNascimento">
+
+                    <label for="numCpf">CPF</label>
+                    <input id="numCpf" placeholder="Somente números">
+
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone">
+
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco">
+
+                    <div>
+                        <button id="buttonStyle" onclick="cadastraPessoa()" type="button" class="btn btn-primary">Enviar</button>
+                    </div>
+
+                </form>
+            </main>
+    </div>
+    <div>
+        <table id="jqGrid"></table>
+    </div>
+</body>
+</html>
